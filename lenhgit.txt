@@ -23,6 +23,10 @@ git commit --amend -m "thông điệp" // quay lại hay trở lại hay hủy c
 //push code từ local repository lên github 1 project mới
 
 git remote add <tên remote> <url> //tạo 1 cái push mới(ghi nhớ tên đặt remote này sử dụng sau này)
+(dùng git remote -v để xem các remote)
+///xem toàn bộ branch của remote mới///
+git remote show tên_remote
+
 sau đó
 git push <tên remote đặt bên trên> //push cái push trên
 
@@ -119,3 +123,13 @@ git branch
 git branch tên_branch
 //////////////gộp dữ liệu từ branch nào đó về branch hiện tại///////////////
 git merge tên_branch_nào_đó (phải quay về branch gốc muốn gộp bằng git checkout tên_branch)
+//////////////////xóa branch/////////////////////////////////
+git branch -d tên_branch
+
+///lấy dữ liệu từ 1 branch của remote nào đó về 1 branch nào đó
+b1. tạo mới => chuyển về branch cần fetch dữ liệu về(chuyển về nếu tạo rồi)
+git branch tên_branch_mới
+git checkout tên_branch_mới_tạo
+b2. git pull tên_remote_muốn_lấy tên_branch_muốn_lấy //(branch muốn lấy của remote muốn lấy)
+b3. pust lên pository
+git push tên_remote_muốn_push tên_branch_muốn_push
