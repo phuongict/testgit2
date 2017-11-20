@@ -1,11 +1,28 @@
-﻿//dùng trong command
+﻿trạng thái làm việc,hoặc mới tạo => git add(đưa vào trạng thái chờ commit stage)=>git commit => đưa vào local repository (lưu lại bản chỉnh sửa) => đưa lên remote 
+//dùng trong command
 git --version //xem phiên bản
 git config --global user.name = "tên" //cấu hình tên và email
 git config --global email= "email"
 
 
 //dùng trong git base
+git init //tạo git repository khi tạo project mới dùng git
 git status //xem trạng thái
-git add "file"//thêm vào trạng thái chờ commit(* hoặc . để chọn tất cả file)
-git commit -m "thông điệp thay đổi" //commit vào repostory
+file mới,vừa sửa có dạng untracked không thể commit (màu đỏ khi xem git status)
+git add "file"//thêm vào trạng thái chờ commit(* hoặc . để chọn tất cả file) tracked
+git commit -m "thông điệp thay đổi" //commit vào repository
 git commit -a -m "thông điệp" // kết hợp 2 lệnh trên
+
+//push code từ local repository lên github 1 project mới
+
+git remote add <tên lần đặt tự đặt> <url> //tạo 1 cái push
+sau đó
+git push <tên đặt bên trên> //push cái push trên
+
+set branch cho code muốn push
+git push --set-upstream <tên push trên> master
+//nếu lần sau vẫn project đó thì chỉ việc chạy (git push)
+//clone về
+chuột phải thư mục muốn clone về chọn git base here
+git clone <url>
+
