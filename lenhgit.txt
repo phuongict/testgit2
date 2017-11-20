@@ -26,3 +26,12 @@ git push --set-upstream <tên push trên> master
 chuột phải thư mục muốn clone về chọn git base here
 git clone <url>
 
+//backup project nào đó trong các lần sửa
+
+git revert <id lần sửa xem bằng git log>
+ctr+c dừng lại
+shift :q +enter thoát
+
+//pull kéo từ github về nơi đang làm việc chung
+git pull
+(hợp nhất code lại. còn clone là lấy download về không gộp)
