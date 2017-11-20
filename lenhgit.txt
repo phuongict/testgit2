@@ -1,4 +1,4 @@
-﻿trạng thái làm việc,hoặc mới tạo => git add(đưa vào trạng thái chờ commit stage)=>git commit => đưa vào local repository (lưu lại bản chỉnh sửa) => đưa lên remote 
+﻿trạng thái làm việc,hoặc mới tạo => git add(đưa vào trạng thái chờ commit (stage area))=>git commit => đưa vào local repository (lưu lại bản chỉnh sửa) => đưa lên remote 
 //dùng trong command
 git --version //xem phiên bản
 git config --global user.name = "tên" //cấu hình tên và email
@@ -9,9 +9,15 @@ git config --global email= "email"
 git init //tạo git repository khi tạo project mới dùng git
 git status //xem trạng thái
 file mới,vừa sửa có dạng untracked không thể commit (màu đỏ khi xem git status)
-git add "file"//thêm vào trạng thái chờ commit(* hoặc . để chọn tất cả file) tracked
+git add "file"//thêm vào trạng thái chờ commit(stage area)(* hoặc . để chọn tất cả file) tracked
+//bỏ file ra khỏi trạng thái chờ stage area
+git reset HEAD tên_file
+
+//commit file
 git commit -m "thông điệp thay đổi" //commit vào repository
 git commit -a -m "thông điệp" // kết hợp 2 lệnh trên
+
+git commit --amend -m "thông điệp" // quay lại hay trở lại hay hủy commit vừa xong giống ctr+z
 
 //push code từ local repository lên github 1 project mới
 
@@ -26,6 +32,10 @@ git push --set-upstream <tên push trên> master
 chuột phải thư mục muốn clone về chọn git base here
 git clone <url>
 
+//xem lịch sử chỉnh sửa
+git log hoặc chi tiết git log -p
+nếu quá dài  Ctrl + Z để thoát phím lên xuống để di chuyển
+
 //backup project nào đó trong các lần sửa
 
 git revert <id lần sửa xem bằng git log>
@@ -35,3 +45,13 @@ shift :q +enter thoát
 //pull kéo từ github về nơi đang làm việc chung
 git pull
 (hợp nhất code lại. còn clone là lấy download về không gộp)
+
+
+//thêm 1 chuỗi vào 1 file
+echo "chuỗi muốn thêm" > tên file
+
+//đưa file từ tracked về untracked
+rm <tên file>
+
+//nếu muốn xóa hẳn file
+git rm -f tên file
