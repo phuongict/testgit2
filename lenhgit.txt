@@ -55,3 +55,22 @@ rm <tên file>
 
 //nếu muốn xóa hẳn file
 git rm -f tên file
+
+
+// gắn thẻ tag đánh dấu mỗi lần commit (lần commit mới nhất)
+1. kiểu không thông điệp
+git tag tên_tag
+2. có thông điệp + tên tác giả
+git tag 
+
+xem các tag đã tạo
+git tag -a tên_tag -m"thông điệp"
+
+xem commit gắn tag
+git show tên_tag
+
+// với các lần commit cũ thì
+b1: xem các lần commit bằng git log thêm tham số --pretty=oneline
+git log --pretty=oneline
+b2: thêm đoạn checksum vào
+git tag -a ten_tag checksum -m"thông điệp"
