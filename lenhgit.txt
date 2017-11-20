@@ -1,0 +1,11 @@
+﻿//dùng trong command
+git --version //xem phiên bản
+git config --global user.name = "tên" //cấu hình tên và email
+git config --global email= "email"
+
+
+//dùng trong git base
+git status //xem trạng thái
+git add "file"//thêm vào trạng thái chờ commit(* hoặc . để chọn tất cả file)
+git commit -m "thông điệp thay đổi" //commit vào repostory
+git commit -a -m "thông điệp" // kết hợp 2 lệnh trên
