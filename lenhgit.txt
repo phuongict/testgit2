@@ -6,7 +6,8 @@ git config --global email= "email"
 
 
 //dùng trong git base
-git init //tạo git repository khi tạo project mới dùng git
+git init //tạo git repository khi tạo project mới dùng git(khi sử dụng thư mục hiện tại)
+git init tên_thư_mục //giống trên với trường hợp tạo trong thư mục mới
 git status //xem trạng thái
 file mới,vừa sửa có dạng untracked không thể commit (màu đỏ khi xem git status)
 git add "file"//thêm vào trạng thái chờ commit(stage area)(* hoặc . để chọn tất cả file) tracked
@@ -21,9 +22,9 @@ git commit --amend -m "thông điệp" // quay lại hay trở lại hay hủy c
 
 //push code từ local repository lên github 1 project mới
 
-git remote add <tên lần đặt tự đặt> <url> //tạo 1 cái push
+git remote add <tên remote> <url> //tạo 1 cái push mới(ghi nhớ tên đặt remote này sử dụng sau này)
 sau đó
-git push <tên đặt bên trên> //push cái push trên
+git push <tên remote đặt bên trên> //push cái push trên
 
 set branch cho code muốn push
 git push --set-upstream <tên push trên> master
@@ -42,11 +43,26 @@ git revert <id lần sửa xem bằng git log>
 ctr+c dừng lại
 shift :q +enter thoát
 
+/////////////////////lấy dữ liệu từ remote mới về////////////////
+git fetch tên_remote //lấy và lưu vào database git chưa gộp vào repository 
+git merge tên_remote //gộp vào repository
+
 //pull kéo từ github về nơi đang làm việc chung
+git pull tên_remote //gộp luôn vào repository
+//////////////////////////chú ý khách nhau giữa clone,pull,fetch//////////////////////////////////
+git clone
+
+Lệnh này sẽ sao chép toàn bộ dữ liệu trên repository và sao chép luôn các thiết lập về repository, tức là nó sẽ tự động tạo một master branch trên máy tính của bạn. Lệnh này chỉ nên sử dụng khi bạn cần tạo mới một Git mới trên máy tính với toàn bộ dữ liệu và thiết lập của một remote repository.
+
 git pull
-(hợp nhất code lại. còn clone là lấy download về không gộp)
 
+Lệnh này sẽ tự động lấy toàn bộ dữ liệu từ remote repository và gộp vào cái branch hiện tại bạn đang làm việc.
 
+git fetch
+
+Lệnh này sẽ lấy toàn bộ dữ liệu từ remote repository nhưng sẽ cho phép bạn gộp thủ công vào một branch nào đó trên thư mục Git ở máy tính.
+
+////////////////////////////////////////////////////////////////////////////////////
 //thêm 1 chuỗi vào 1 file
 echo "chuỗi muốn thêm" > tên file
 
@@ -74,3 +90,32 @@ b1: xem các lần commit bằng git log thêm tham số --pretty=oneline
 git log --pretty=oneline
 b2: thêm đoạn checksum vào
 git tag -a ten_tag checksum -m"thông điệp"
+
+//push tag vào repository
+git push --tags
+
+
+//nhập tag chuyển qua 1 branch mới làm việc
+
+git checkout -b tên_branch tên_tag
+
+để chuyển về branch cũ 
+git checkout master
+
+//push cái branch mới lên 
+git push tên_remote tên_branch //tên remote đã đặt lúc đầu
+
+/////////////////////////////////xem cấu hình remote///////////////////
+cat .git/config
+hoặc
+git remote -v
+//////////////////////////////////////////////////
+//////////////////////đổi tên remote//////////////////
+git remote rename tên_cũ tên_mới
+///////////////////////////
+//////////////xem các branch////////////////
+git branch
+/////////////////tạo mới//////////////////
+git branch tên_branch
+//////////////gộp dữ liệu từ branch nào đó về branch hiện tại///////////////
+git merge tên_branch_nào_đó (phải quay về branch gốc muốn gộp bằng git checkout tên_branch)
